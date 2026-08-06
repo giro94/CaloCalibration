@@ -159,7 +159,7 @@ namespace mu2e{
 
     GeomHandle<Calorimeter> ch;
     cal    = ch.get();
-    cryDim = cal->caloInfo().getDouble("crystalXYLength") +  2.*cal->caloInfo().getDouble("wrapperThickness");
+    cryDim = cal->G4Info().get<double>("crystalXYLength") +  2.*cal->G4Info().get<double>("wrapperThickness");
     MaxDxVertical = cryDim*1.1; 
   }
 
@@ -228,8 +228,8 @@ namespace mu2e{
         //cut on energy of crystal in cluster
         if(caloClusters[iClu].caloHitsPtrVector()[iCry].get()->energyDep() > CutEnergyDep){
           //counter n crystal above 10 MeV
-          PosX[ncry] = cal->geomUtil().mu2eToDiskFF(caloClusters[iClu].diskID(), cal->crystal(caloClusters[iClu].caloHitsPtrVector()[iCry].get()->crystalID()).position()).getX();
-          PosY[ncry] = cal->geomUtil().mu2eToDiskFF(caloClusters[iClu].diskID(), cal->crystal(caloClusters[iClu].caloHitsPtrVector()[iCry].get()->crystalID()).position()).getY();
+          PosX[ncry] = cal->mu2eToDiskFF(caloClusters[iClu].diskID(), cal->crystal(caloClusters[iClu].caloHitsPtrVector()[iCry].get()->crystalID()).position()).getX();
+          PosY[ncry] = cal->mu2eToDiskFF(caloClusters[iClu].diskID(), cal->crystal(caloClusters[iClu].caloHitsPtrVector()[iCry].get()->crystalID()).position()).getY();
           IDs[ncry] = caloClusters[iClu].caloHitsPtrVector()[iCry].get()->crystalID();
           whichHit[ncry] = iCry;
           ncry++;

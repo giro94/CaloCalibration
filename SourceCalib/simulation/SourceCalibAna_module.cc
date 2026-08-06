@@ -182,7 +182,7 @@ namespace mu2e {
 
           const CaloHit& hit            = CaloHits.at(ic);
           int diskId                    = cal.crystal(hit.crystalID()).diskID();
-          CLHEP::Hep3Vector crystalPos  = cal.geomUtil().mu2eToDiskFF(diskId,cal.crystal(hit.crystalID()).position());
+          CLHEP::Hep3Vector crystalPos  = cal.mu2eToDiskFF(diskId,cal.crystal(hit.crystalID()).position());
 
           const auto eDepMCs =  caloHitTruthCollection[ic].energyDeposits();
 
