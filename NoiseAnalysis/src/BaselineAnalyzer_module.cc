@@ -24,7 +24,7 @@
 #include "cetlib_except/exception.h"
 
 //-- insert calls to proditions ..for calodmap-----
-#include "Offline/CaloConditions/inc/CaloDAQMap.hh"
+#include "Offline/CaloConditions/inc/CalDAQMap.hh"
 #include "Offline/ProditionsService/inc/ProditionsHandle.hh"
 //-------------------------------------------------
 
@@ -98,7 +98,7 @@ class BaselineAnalyzer : public art::EDAnalyzer {
 	double      hotStdDev_;
 	double      coldStdDev_;
 
-	mu2e::ProditionsHandle<mu2e::CaloDAQMap> _calodaqconds_h;
+	mu2e::ProditionsHandle<mu2e::CalDAQMap> _calodaqconds_h;
 
 	double xmin;
 	double xmax;
@@ -196,7 +196,7 @@ void mu2e::BaselineAnalyzer::analyze(art::Event const& event) {
 	const auto&                           caloDigis = *event.getValidHandle(consumes<mu2e::CaloDigiCollection>(caloDigiTag_));
 	art::ServiceHandle<art::TFileService> tfs;
 
-	mu2e::CaloDAQMap const& calodaqconds = _calodaqconds_h.get(event.id());
+	mu2e::CalDAQMap const& calodaqconds = _calodaqconds_h.get(event.id());
 	if(!titlesSet) {  // Need to do this here in order to have calodaqconds
 		for(int sipmid = 0; sipmid < CaloConst::_nChannel; sipmid++) {
 			mu2e::CaloSiPMId SiPMID_(sipmid);

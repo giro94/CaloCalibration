@@ -198,7 +198,7 @@ namespace mu2e{
 
     GeomHandle<Calorimeter> ch;
     cal    = ch.get();
-    cryDim = cal->caloInfo().getDouble("crystalXYLength") +  2.*cal->caloInfo().getDouble("wrapperThickness");
+    cryDim = cal->G4Info().get<double>("crystalXYLength") +  2.*cal->G4Info().get<double>("wrapperThickness");
     MaxDxVertical = cryDim*1.1; 
   }
 
