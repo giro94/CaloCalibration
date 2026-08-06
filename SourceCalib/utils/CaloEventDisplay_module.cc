@@ -166,12 +166,12 @@ namespace mu2e
 	      Crystal const &crystal = cal.crystal(i);
         double crystalXLen = crystal.size().x();
         double crystalYLen = crystal.size().y();
-        CLHEP::Hep3Vector crystalPos   = cal.geomUtil().mu2eToDiskFF(1,crystal.position());
+        CLHEP::Hep3Vector crystalPos   = cal.mu2eToDiskFF(1,crystal.position());
         box.SetLineColor(kGray+1);
         box.DrawBox(crystalPos.x()-crystalXLen/2, crystalPos.y()-crystalYLen/2,crystalPos.x()+crystalXLen/2, crystalPos.y()+crystalYLen/2);
   int diskId     = cal.crystal(hit->id()).diskId();
 
-        CLHEP::Hep3Vector crystalPos   = cal.geomUtil().mu2eToDiskFF(diskId,cal.crystal(hit->id()).position());
+        CLHEP::Hep3Vector crystalPos   = cal.mu2eToDiskFF(diskId,cal.crystal(hit->id()).position());
 
         box.DrawBox(crystalPos.x()-crystalXLen/2, crystalPos.y()-crystalYLen/2,crystalPos.x()+crystalXLen/2, crystalPos.y()+crystalYLen/2);
      

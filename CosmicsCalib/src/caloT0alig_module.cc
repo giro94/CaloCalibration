@@ -302,7 +302,7 @@ namespace mu2e {
 
 	  // Hit distribution vs phi and cristal index before t0alig selection cuts
 
-	  CLHEP::Hep3Vector crystalPos  = caloGeom.geomUtil().mu2eToDiskFF(diskId,caloGeom.crystal(cryId).position());  // Crystal position in disk FF frame
+	  CLHEP::Hep3Vector crystalPos  = caloGeom.mu2eToDiskFF(diskId,caloGeom.crystal(cryId).position());  // Crystal position in disk FF frame
 	  float xval = crystalPos.x();
 	  float yval = crystalPos.y();
 

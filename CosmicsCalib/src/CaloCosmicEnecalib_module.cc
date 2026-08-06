@@ -307,8 +307,8 @@ namespace mu2e{
 	  if (cryID==610 || cryID==637 || cryID==609 || cryID==582) enecut = LYSOcut; 
 	  else enecut = CutEnergyDep;
 	  if (VmaxHit > enecut && sipmID>=0 && sipmID<nROchan) {
-	    float PosX = cal->geomUtil().mu2eToDiskFF(diskID, cal->crystal(cryID).position()).getX();
-	    float PosY = cal->geomUtil().mu2eToDiskFF(diskID, cal->crystal(cryID).position()).getY();
+	    float PosX = cal->mu2eToDiskFF(diskID, cal->crystal(cryID).position()).getX();
+	    float PosY = cal->mu2eToDiskFF(diskID, cal->crystal(cryID).position()).getY();
 
 	    PosXY.push_back({PosX,PosY});
 	    IDs[nhits] = sipmID;
